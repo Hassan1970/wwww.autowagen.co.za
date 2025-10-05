@@ -431,7 +431,7 @@
             gap: 15px;
         }
 
-        .upload-form input, .upload-form select {
+        .upload-form input, .upload-form select, .upload-form textarea {
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -808,7 +808,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm" action="https://formsubmit.co/info@autowagon-spares.co.za" method="POST">
+                    <form id="contactForm" action="https://formsubmit.co/your-email@example.com" method="POST">
                         <input type="hidden" name="_subject" value="New Contact Form Submission">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
@@ -836,7 +836,7 @@
         <div class="container">
             <div class="upload-container">
                 <h2>Add Parts To Inventory</h2>
-                <p>Upload images and details of parts you want to add to the website</p>
+                <p>Upload images from your computer to add parts to the website</p>
                 <form class="upload-form" id="imageUploadForm">
                     <input type="file" id="imageInput" accept="image/*" required>
                     <input type="text" id="partName" placeholder="Part Name" required>
@@ -1132,7 +1132,8 @@
         // FormSubmit configuration
         contactForm.addEventListener('submit', function(e) {
             // FormSubmit will handle the submission
-            this.action = "https://formsubmit.co/info@autowagon-spares.co.za";
+            // Replace 'your-email@example.com' with your actual email
+            this.action = "https://formsubmit.co/your-email@example.com";
         });
 
         // Smooth scrolling for anchor links
@@ -1171,7 +1172,7 @@
                         car: "BMW 3 Series",
                         year: "2015-2018",
                         description: "Low mileage engine in excellent condition. Complete with accessories.",
-                        image: "https://images.unsplash.com/photo-1626886616426-70ad8c9d9d66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        image: "https://images.unsplash.com/photo-1626886616426-70ad8c9d9d66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
                     },
                     {
                         id: 2,
@@ -1181,7 +1182,7 @@
                         car: "Audi A4",
                         year: "2016-2019",
                         description: "Pair of OEM LED headlights. Perfect condition, no cracks or moisture.",
-                        image: "https://images.unsplash.com/photo-1621967292795-89fa0f044e1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        image: "https://images.unsplash.com/photo-1621967292795-89fa0f044e1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
                     },
                     {
                         id: 3,
@@ -1191,7 +1192,7 @@
                         car: "Mercedes C-Class",
                         year: "2017-2020",
                         description: "Set of 4 19\" AMG alloy rims. Minor curb rash, no bends or cracks.",
-                        image: "https://images.unsplash.com/photo-1603712610496-5362a0e6c4f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        image: "https://images.unsplash.com/photo-1603712610496-5362a0e6c4f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
                     }
                 ];
                 savePartsToStorage();
