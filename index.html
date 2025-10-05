@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoWagon Spares | Quality Used Car Parts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #d4af37;
+            --accent-color: #c8102e;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --gray-color: #6c757d;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c19b2c;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0f2a46;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 15px auto 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1603712610496-5362a0e6c4f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Parts Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 30px 20px;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .category-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Featured Parts */
+        .parts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .part-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .part-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .part-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .part-details {
+            padding: 20px;
+        }
+
+        .part-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .part-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .part-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background-color: var(--light-color);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step {
+            padding: 30px 20px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Testimonials */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gray-color);
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-detail i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Image Upload Section */
+        .image-upload {
+            background-color: var(--light-color);
+        }
+
+        .upload-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .upload-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .upload-form input, .upload-form select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .upload-preview {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .upload-preview img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 4px;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Admin Controls */
+        .admin-controls {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">AutoWagon <span>Spares</span></div>
+            <div class="mobile-menu">☰</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Parts Categories</a></li>
+                <li><a href="#parts">Featured Parts</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#sell-to-us">Sell Your Car</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#upload">Upload Parts</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Quality Used Car Parts & Spares</h1>
+            <p>We buy cars, strip them, and provide quality used parts at affordable prices. Find the perfect spare part for your vehicle.</p>
+            <a href="#categories" class="btn">Browse Parts</a>
+            <a href="#sell-to-us" class="btn btn-outline">Sell Your Car</a>
+        </div>
+    </section>
+
+    <!-- Parts Categories -->
+    <section id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Parts Categories</h2>
+                <p>Browse our wide range of quality used car parts</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="engines">
+                    <div class="category-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Engines & Transmissions</h3>
+                    <p>Complete engines, gearboxes, and components</p>
+                </div>
+                <div class="category-card" data-category="electrical">
+                    <div class="category-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Electrical Parts</h3>
+                    <p>Alternators, starters, sensors, and wiring</p>
+                </div>
+                <div class="category-card" data-category="body">
+                    <div class="category-icon"><i class="fas fa-car-side"></i></div>
+                    <h3>Body Parts</h3>
+                    <p>Doors, fenders, bonnets, and bumpers</p>
+                </div>
+                <div class="category-card" data-category="suspension">
+                    <div class="category-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Suspension & Steering</h3>
+                    <p>Shocks, struts, control arms, and racks</p>
+                </div>
+                <div class="category-card" data-category="interior">
+                    <div class="category-icon"><i class="fas fa-chair"></i></div>
+                    <h3>Interior Parts</h3>
+                    <p>Seats, dashboards, consoles, and trim</p>
+                </div>
+                <div class="category-card" data-category="brakes">
+                    <div class="category-icon"><i class="fas fa-stop-circle"></i></div>
+                    <h3>Brake Systems</h3>
+                    <p>Calipers, rotors, pads, and master cylinders</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Parts -->
+    <section id="parts">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Parts</h2>
+                <p>Check out our latest quality used parts in stock</p>
+            </div>
+            
+            <div class="filter-section">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Parts</button>
+                    <button class="filter-btn" data-filter="engines">Engines</button>
+                    <button class="filter-btn" data-filter="electrical">Electrical</button>
+                    <button class="filter-btn" data-filter="body">Body Parts</button>
+                    <button class="filter-btn" data-filter="suspension">Suspension</button>
+                    <button class="filter-btn" data-filter="interior">Interior</button>
+                    <button class="filter-btn" data-filter="brakes">Brakes</button>
+                </div>
+            </div>
+            
+            <div class="parts-grid" id="partsContainer">
+                <!-- Parts will be dynamically loaded here -->
+            </div>
+            
+            <div class="admin-controls">
+                <button id="clearDataBtn" class="btn btn-outline">Clear All Parts Data</button>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: var(--gray-color);">Use this if you need to reset the parts inventory</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="sell-to-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sell Your Car To Us</h2>
+                <p>Get cash for your old or damaged vehicle</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Contact Us</h3>
+                    <p>Call or message us with your car details - make, model, year, and condition.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get A Quote</h3>
+                    <p>We'll provide you with a fair cash offer based on your vehicle's condition and market value.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>We Collect</h3>
+                    <p>We arrange to collect your vehicle at your convenience - no towing fees!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Get Paid</h3>
+                    <p>Receive your payment immediately upon collection of the vehicle.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contact" class="btn">Get A Quote Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive automotive solutions for all your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-service="Parts Sourcing">
+                    <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                    <h3>Parts Sourcing</h3>
+                    <p>Can't find what you're looking for? We'll help source the specific part you need.</p>
+                </div>
+                <div class="service-card" data-service="Part Identification">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>Part Identification</h3>
+                    <p>Not sure what part you need? Send us photos and we'll identify it for you.</p>
+                </div>
+                <div class="service-card" data-service="Nationwide Delivery">
+                    <div class="service-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <h3>Nationwide Delivery</h3>
+                    <p>We deliver parts anywhere in South Africa. Fast, reliable shipping.</p>
+                </div>
+                <div class="service-card" data-service="Installation Support">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Installation Support</h3>
+                    <p>Need help installing your part? We provide guidance and can recommend trusted mechanics.</p>
+                </div>
+                <div class="service-card" data-service="Warranty">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Quality Warranty</h3>
+                    <p>All our parts come with a warranty for your peace of mind.</p>
+                </div>
+                <div class="service-card" data-service="Vehicle Collection">
+                    <div class="service-icon"><i class="fas fa-truck-pickup"></i></div>
+                    <h3>Vehicle Collection</h3>
+                    <p>We collect vehicles for free when you sell your car to us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Testimonials</h2>
+                <p>Hear what our satisfied customers have to say</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p class="testimonial-text">"I needed a transmission for my BMW and AutoWagon Spares had exactly what I was looking for at half the dealer price. The part was in great condition and works perfectly!"</p>
+                    <p class="testimonial-author">- Michael Johnson, Johannesburg</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for parts inquiries or to sell your vehicle</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Spares Street, Johannesburg, South Africa</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <p>+27 11 123 4567</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <p>info@autowagon-spares.co.za</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <p>Mon-Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formsubmit.co/info@autowagon-spares.co.za" method="POST">
+                        <input type="hidden" name="_subject" value="New Contact Form Submission">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="#contact">
+                        
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone Number">
+                        <select name="inquiry_type" required>
+                            <option value="" disabled selected>Select Inquiry Type</option>
+                            <option value="parts">Parts Inquiry</option>
+                            <option value="sell">Sell My Car</option>
+                            <option value="general">General Question</option>
+                        </select>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Upload Section -->
+    <section class="image-upload" id="upload">
+        <div class="container">
+            <div class="upload-container">
+                <h2>Add Parts To Inventory</h2>
+                <p>Upload images and details of parts you want to add to the website</p>
+                <form class="upload-form" id="imageUploadForm">
+                    <input type="file" id="imageInput" accept="image/*" required>
+                    <input type="text" id="partName" placeholder="Part Name" required>
+                    <input type="text" id="partPrice" placeholder="Price (R)" required>
+                    <input type="text" id="partCar" placeholder="Car Model (e.g., BMW 3 Series)">
+                    <input type="text" id="partYear" placeholder="Year Range (e.g., 2015-2018)">
+                    <select id="partCategory" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="engines">Engines & Transmissions</option>
+                        <option value="electrical">Electrical Parts</option>
+                        <option value="body">Body Parts</option>
+                        <option value="suspension">Suspension & Steering</option>
+                        <option value="interior">Interior Parts</option>
+                        <option value="brakes">Brake Systems</option>
+                    </select>
+                    <textarea id="partDescription" placeholder="Part Description" required></textarea>
+                    <button type="submit" class="btn btn-primary">Add Part</button>
+                </form>
+                <div class="upload-preview" id="imagePreview">
+                    <p>Your uploaded part image will appear here</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>AutoWagon Spares</h3>
+                    <p>Your trusted source for quality used car parts in South Africa. We buy cars and strip them for spares.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Parts Categories</a></li>
+                        <li><a href="#parts">Featured Parts</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#upload">Upload Parts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Spares Street, Johannesburg</li>
+                        <li><i class="fas fa-phone"></i> +27 11 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@autowagon-spares.co.za</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Business Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 8:00 AM - 6:00 PM</li>
+                        <li>Saturday: 9:00 AM - 2:00 PM</li>
+                        <li>Sunday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AutoWagon Spares. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Image Upload Functionality
+        const imageUploadForm = document.getElementById('imageUploadForm');
+        const imageInput = document.getElementById('imageInput');
+        const partName = document.getElementById('partName');
+        const partPrice = document.getElementById('partPrice');
+        const partCar = document.getElementById('partCar');
+        const partYear = document.getElementById('partYear');
+        const partCategory = document.getElementById('partCategory');
+        const partDescription = document.getElementById('partDescription');
+        const imagePreview = document.getElementById('imagePreview');
+        const partsContainer = document.getElementById('partsContainer');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const categoryCards = document.querySelectorAll('.category-card');
+        const serviceCards = document.querySelectorAll('.service-card');
+        const contactForm = document.getElementById('contactForm');
+        const clearDataBtn = document.getElementById('clearDataBtn');
+
+        // Store parts data
+        let partsData = [];
+
+        // Save parts to localStorage
+        function savePartsToStorage() {
+            localStorage.setItem('autowagonParts', JSON.stringify(partsData));
+        }
+
+        // Load parts from localStorage
+        function loadPartsFromStorage() {
+            const savedParts = localStorage.getItem('autowagonParts');
+            if (savedParts) {
+                partsData = JSON.parse(savedParts);
+            }
+        }
+
+        // Initialize parts display
+        function displayParts(parts) {
+            partsContainer.innerHTML = '';
+            
+            if (parts.length === 0) {
+                partsContainer.innerHTML = '<p style="text-align: center; grid-column: 1/-1; padding: 40px; color: var(--gray-color);">No parts found in this category. Add some parts using the form below!</p>';
+                return;
+            }
+            
+            parts.forEach(part => {
+                const partCard = document.createElement('div');
+                partCard.className = 'part-card';
+                partCard.dataset.category = part.category;
+                
+                partCard.innerHTML = `
+                    <img src="${part.image}" alt="${part.name}" class="part-image">
+                    <div class="part-details">
+                        <h3>${part.name}</h3>
+                        <div class="part-price">${part.price}</div>
+                        <div class="part-info">
+                            <span><i class="fas fa-car"></i> ${part.car}</span>
+                            <span><i class="fas fa-calendar"></i> ${part.year}</span>
+                        </div>
+                        <p>${part.description}</p>
+                        <a href="#contact" class="btn btn-outline inquire-btn" data-part="${part.name}">Inquire Now</a>
+                    </div>
+                `;
+                
+                partsContainer.appendChild(partCard);
+            });
+            
+            // Re-attach event listeners to new inquire buttons
+            attachInquireButtonListeners();
+        }
+
+        // Filter parts by category
+        function filterParts(category) {
+            if (category === 'all') {
+                displayParts(partsData);
+            } else {
+                const filteredParts = partsData.filter(part => part.category === category);
+                displayParts(filteredParts);
+            }
+        }
+
+        // Add event listeners to filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter parts
+                const filter = button.dataset.filter;
+                filterParts(filter);
+            });
+        });
+
+        // Add event listeners to category cards
+        categoryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const category = card.dataset.category;
+                
+                // Update active filter button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                const targetButton = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+                if (targetButton) {
+                    targetButton.classList.add('active');
+                }
+                
+                // Filter parts
+                filterParts(category);
+                
+                // Scroll to parts section
+                document.querySelector('#parts').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Add event listeners to service cards
+        serviceCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const service = card.dataset.service;
+                
+                // Scroll to contact form
+                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                
+                // Set the inquiry type to "Parts Inquiry" and add service name to message
+                setTimeout(() => {
+                    const inquirySelect = document.querySelector('select[name="inquiry_type"]');
+                    const messageTextarea = document.querySelector('textarea[name="message"]');
+                    
+                    if (inquirySelect) inquirySelect.value = 'parts';
+                    if (messageTextarea) messageTextarea.value = `I'm interested in your ${service} service. Please provide more information.`;
+                }, 500);
+            });
+        });
+
+        // Add event listeners to inquire buttons
+        function attachInquireButtonListeners() {
+            document.querySelectorAll('.inquire-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const partName = button.dataset.part;
+                    
+                    // Scroll to contact form
+                    document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Set the inquiry type to "Parts Inquiry" and add part name to message
+                    setTimeout(() => {
+                        const inquirySelect = document.querySelector('select[name="inquiry_type"]');
+                        const messageTextarea = document.querySelector('textarea[name="message"]');
+                        
+                        if (inquirySelect) inquirySelect.value = 'parts';
+                        if (messageTextarea) messageTextarea.value = `I'm interested in the ${partName}. Please provide more information about availability and pricing.`;
+                    }, 500);
+                });
+            });
+        }
+
+        // Image preview functionality
+        imageInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.innerHTML = `<img src="${e.target.result}" alt="Part Preview">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Add new part functionality
+        imageUploadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const file = imageInput.files[0];
+            const name = partName.value;
+            const price = partPrice.value;
+            const car = partCar.value || "Various Models";
+            const year = partYear.value || "Various Years";
+            const category = partCategory.value;
+            const description = partDescription.value;
+            
+            if (file && name && price && category && description) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newPart = {
+                        id: Date.now(), // Use timestamp for unique ID
+                        name: name,
+                        price: `R ${price}`,
+                        category: category,
+                        car: car,
+                        year: year,
+                        description: description,
+                        image: e.target.result // Convert image to base64
+                    };
+                    
+                    partsData.push(newPart);
+                    savePartsToStorage();
+                    
+                    const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+                    filterParts(activeFilter);
+                    
+                    imageUploadForm.reset();
+                    imagePreview.innerHTML = '<p>Your uploaded part image will appear here</p>';
+                    
+                    alert(`Part "${name}" added successfully!`);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please fill in all required fields and select an image.');
+            }
+        });
+
+        // Clear all data functionality
+        clearDataBtn.addEventListener('click', function() {
+            if (confirm('Are you sure you want to clear all parts data? This action cannot be undone.')) {
+                localStorage.removeItem('autowagonParts');
+                partsData = [];
+                displayParts(partsData);
+                alert('All parts data has been cleared.');
+            }
+        });
+
+        // FormSubmit configuration
+        contactForm.addEventListener('submit', function(e) {
+            // FormSubmit will handle the submission
+            this.action = "https://formsubmit.co/info@autowagon-spares.co.za";
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPartsFromStorage();
+            
+            // If no saved data, initialize with default parts
+            if (partsData.length === 0) {
+                partsData = [
+                    {
+                        id: 1,
+                        name: "BMW N20 Engine",
+                        price: "R 12,500",
+                        category: "engines",
+                        car: "BMW 3 Series",
+                        year: "2015-2018",
+                        description: "Low mileage engine in excellent condition. Complete with accessories.",
+                        image: "https://images.unsplash.com/photo-1626886616426-70ad8c9d9d66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    },
+                    {
+                        id: 2,
+                        name: "Audi LED Headlights",
+                        price: "R 4,200",
+                        category: "electrical",
+                        car: "Audi A4",
+                        year: "2016-2019",
+                        description: "Pair of OEM LED headlights. Perfect condition, no cracks or moisture.",
+                        image: "https://images.unsplash.com/photo-1621967292795-89fa0f044e1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    },
+                    {
+                        id: 3,
+                        name: "Mercedes AMG Rims",
+                        price: "R 8,750",
+                        category: "body",
+                        car: "Mercedes C-Class",
+                        year: "2017-2020",
+                        description: "Set of 4 19\" AMG alloy rims. Minor curb rash, no bends or cracks.",
+                        image: "https://images.unsplash.com/photo-1603712610496-5362a0e6c4f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    }
+                ];
+                savePartsToStorage();
+            }
+            
+            displayParts(partsData);
+        });
+    </script>
+</body>
+</html>
